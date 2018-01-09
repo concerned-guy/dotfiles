@@ -1,0 +1,13 @@
+[user]
+    email = vuongbaoson.1998@gmail.com
+    name = S
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    up = rebase
+    ci = commit
+[credential]
+	helper = store
+[core]
+	excludesfile = /home/s/.gitignorerc
