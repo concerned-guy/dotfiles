@@ -14,8 +14,8 @@
 ;; backup in emacs dir
 (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/autosaves/" t))
       backup-directory-alist '((".*" . "~/.emacs.d/backups/")))
-;; theme
-(load-theme 'zenburn t)
+;; ;; theme
+(load-theme 'wombat t)
 
 ;; ==================================================
 ;; Modes
@@ -131,7 +131,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (mips-mode smex projectile ggtags web-mode zenburn-theme ido-completing-read+ matlab-mode xclip company markdown-mode nlinum rainbow-delimiters nyan-mode shift-number whole-line-or-region smart-compile emmet-mode comment-dwim-2 yasnippet whitespace-cleanup-mode expand-region))))
+    (yasnippet-snippets yasnippet xclip mips-mode smex projectile ggtags web-mode zenburn-theme ido-completing-read+ matlab-mode company markdown-mode nlinum rainbow-delimiters nyan-mode shift-number whole-line-or-region smart-compile emmet-mode comment-dwim-2 whitespace-cleanup-mode expand-region))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

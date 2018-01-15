@@ -1,16 +1,22 @@
-source "gpg -dq ~/.mutt-credentials.gpg |"
+# put your password in the credentials file like this
+#   set my_pass = 123456
+
+source "~/.mutt-credentials"
+
+set my_email    = vuongbaoson.1998@gmail.com
+set my_user     = $my_email
 
 set folder      = imaps://imap.gmail.com
-set imap_user   = vuongbaoson.1998@gmail.com
+set imap_user   = $my_user
 set imap_pass   = $my_pass
 set spoolfile   = +INBOX
 mailboxes       = +INBOX
 
-set realname    = S
+set realname    = sss
 set from        = vuongbaoson.1998@gmail.com
 set use_from    = yes
 
-set smtp_url=smtps://$imap_user:$imap_pass@smtp.gmail.com
+set smtp_url=smtps://$my_user:$my_pass@smtp.gmail.com
 set ssl_force_tls = yes
 
 bind index "^" imap-fetch-mail
@@ -22,7 +28,7 @@ unset ispell
 
 # Store message headers locally to speed things up.
 # If hcache is a folder, Mutt will create sub cache folders for each account which may speeds things up even more.
-set header_cache = ~/.cache/mutt
+set header_cache = "~/.cache/mutt"
 
 # Store messages locally to speed things up, like searching message bodies.
 # Can be the same folder as header_cache.

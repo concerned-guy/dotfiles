@@ -1,0 +1,8 @@
+#!/bin/sh
+
+export DISPLAY=:0.0
+tpctl() { xinput $1 $(xinput | grep '\(SYNA\|SynPS\)' | grep -Po '=\K[0-9]*'); }
+case $1 in
+    d*|D*) tpctl disable; echo Touchpad disabled! ;;
+    *) tpctl enable; echo Touchpad enabled! ;;
+esac

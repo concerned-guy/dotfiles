@@ -4,9 +4,8 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-
 alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
+export PS1='\[\033[00;32m\]\u@\h\[\033[00m\]: \[\033[00;36m\]\w\[\033[00m\] \$ '
 
 # customize commands
 alias cp='cp -vi'
@@ -33,7 +32,7 @@ alias pioc='pio run --target clean'
 alias piou='pkill dterm; pio run --target upload'
 
 # environment variables. dont change or you'll have unwanted effects
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH"
 export TERM='xterm-256color'
 export EDITOR='emacsclient -t'
 export VISUAL='emacsclient -t'
@@ -42,20 +41,12 @@ export SDCV_PAGER='less'
 export PAGER='less'
 export LESS='FRXMi'
 
+# bash-completion
+export BASH_COMPLETION="/usr/share/bash-completion/bash_completion"
+[[ -f "$BASH_COMPLETION" ]] && source "$BASH_COMPLETION"
+complete -c man which           # complete arguments
+
 # Path to the bash it configuration
 export BASH_IT="$HOME/.bash-it"
-
-# Lock and Load a custom theme file
-# location /.bash_it/themes/
-export BASH_IT_THEME='sirup'
-
-# For theme 'sirup'
-if [[ -f /usr/share/git/git-prompt.sh ]]; then
-     source /usr/share/git/git-prompt.sh
-fi
-
-# Set this to false to turn off version control status checking within the prompt for all themes
-export SCM_CHECK=true
-
-# Load Bash It
 source "$BASH_IT"/bash_it.sh
+
