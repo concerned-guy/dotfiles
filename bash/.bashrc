@@ -7,6 +7,7 @@
 alias ls='ls --color=auto'
 export PS1='\[\033[00;32m\]\u@\h\[\033[00m\]: \[\033[00;36m\]\w\[\033[00m\] \$ '
 
+# Aliases
 # customize commands
 alias cp='cp -vi'
 alias mv='mv -vi'
@@ -31,7 +32,7 @@ alias pior='pio run'
 alias pioc='pio run --target clean'
 alias piou='pkill dterm; pio run --target upload'
 
-# environment variables. dont change or you'll have unwanted effects
+# environment variables. do not change these or you'll have unwanted effects
 export PATH="$HOME/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH"
 export TERM='xterm-256color'
 export EDITOR='emacsclient -t'
@@ -42,9 +43,9 @@ export PAGER='less'
 export LESS='FRXMi'
 
 # bash-completion
-export BASH_COMPLETION="/usr/share/bash-completion/bash_completion"
-[[ -f "$BASH_COMPLETION" ]] && source "$BASH_COMPLETION"
-complete -c man which           # complete arguments
+[[ -r /usr/share/bash-completion/bash_completion ]] &&
+    . /usr/share/bash-completion/bash_completion
+complete -c man which # complete arguments
 
 # Path to the bash it configuration
 export BASH_IT="$HOME/.bash-it"
