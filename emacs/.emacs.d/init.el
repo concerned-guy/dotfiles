@@ -14,8 +14,9 @@
 ;; backup in emacs dir
 (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/autosaves/" t))
       backup-directory-alist '((".*" . "~/.emacs.d/backups/")))
-;; ;; theme
-(load-theme 'wombat t)
+;; random theme
+(setq user-themes '(wombat sanityinc-tomorrow-eighties))
+(load-theme (nth (random (length user-themes)) user-themes) t)
 
 ;; ==================================================
 ;; Modes
@@ -29,7 +30,6 @@
 (ido-everywhere)
 (ido-ubiquitous-mode)
 (menu-bar-mode -1)
-(nyan-mode)
 (projectile-mode)
 (recentf-mode)
 (smex-initialize)
@@ -110,13 +110,11 @@
 (setq recentf-auto-cleanup 'never
       recentf-max-saved-items 200)
 
-;; smart-compile
+;; smart-compile && compilation-mode
 (require 'smart-compile)
-(setq compilation-read-command nil)
+(setq compilation-read-command nil
+      compilation-scroll-output t)
 (add-to-list 'smart-compile-alist '(asm-mode . "spim -f %f"))
-
-;; compilation-mode
-(setq compilation-scroll-output t)
 
 ;; rainbow-delimiter-mode
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
@@ -131,7 +129,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (yasnippet-snippets yasnippet xclip mips-mode smex projectile ggtags web-mode zenburn-theme ido-completing-read+ matlab-mode company markdown-mode nlinum rainbow-delimiters nyan-mode shift-number whole-line-or-region smart-compile emmet-mode comment-dwim-2 whitespace-cleanup-mode expand-region))))
+    (yasnippet-snippets yasnippet xclip smex projectile ggtags web-mode zenburn-theme ido-completing-read+ company markdown-mode nlinum rainbow-delimiters shift-number whole-line-or-region smart-compile emmet-mode comment-dwim-2 whitespace-cleanup-mode expand-region))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
