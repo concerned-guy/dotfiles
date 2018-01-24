@@ -31,13 +31,10 @@ set recolor-lightcolor          "#fafafa" #00
 set recolor-darkcolor           "#212121" #06
 
 # settings
-set window-width 860
-set window-height 650
-set adjust-open width
-set show-scrollbars false
-set window-title-basename true
+set window-width 900
+set window-height 700
 set selection-clipboard clipboard
-set scroll-full-overlap .11
+set scroll-full-overlap 0.10
 
 # key bindings
 map [fullscreen] , navigate previous
@@ -54,4 +51,3 @@ map [fullscreen] d scroll half-down
 map [normal]     d scroll half-down
 
 map [fullscreen] p toggle_page_mode
-map [normal]     p toggle_page_mode

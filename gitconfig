@@ -8,6 +8,6 @@
     up = rebase
     ci = commit
 [credential]
-	helper = store
+    helper = store
 [core]
-	excludesfile = /home/s/.gitignorerc
+    excludesfile = /home/s/.gitignorerc

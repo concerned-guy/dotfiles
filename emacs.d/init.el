@@ -82,23 +82,22 @@
 (add-hook 'python-mode-hook 'ggtags-mode) ;; python
 
 ;; projectile-mode
-(setq projectile-switch-project-action 'projectile-dired)
 (add-to-list 'projectile-other-file-alist '("ino" "h" "hpp" "ipp"))
 (add-to-list 'projectile-other-file-alist '("h" "ino" "c" "cc" "cpp" "ipp" "hpp" "cxx" "ixx" "hxx" "m" "mm"))
 (add-to-list 'projectile-project-root-files-bottom-up "platformio.ini")
 (projectile-register-project-type 'platformio
                                   '("platformio.ini")
                                   :compile "platformio run"
-                                  :run "pkill dterm; platformio run --target upload")
+                                  :run "pkill screen; platformio run --target upload")
 
 ;; emmet-mode
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 
 ;; web-mode
-(setq web-mode-markup-indent-offset 2)
-(setq web-mode-css-indent-offset 2)
-(setq web-mode-code-indent-offset 2)
+(setq web-mode-markup-indent-offset 2
+      web-mode-css-indent-offset 2
+      web-mode-code-indent-offset 2)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
 ;; org-mode
