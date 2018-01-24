@@ -1,7 +1,4 @@
-! Macros
-#define _font                liberation mono
-#define _size	             10
-#define _defFont             xft:_font-_size
+! X server resources
 
 ! Infinality
 Xft*lcdfilter:          lcddefault
@@ -13,7 +10,7 @@ Xft*hintstyle:          hintslight
 
 ! Basics
 URxvt*termName:         xterm-256color
-URxvt*font:             _defFont
+URxvt*font:             xft:liberation mono-10
 URxvt*geometry:         88x28
 
 ! Behavior
@@ -24,14 +21,6 @@ URxvt*scrollBar:             false
 URxvt*scrollTtyOutput:       false
 URxvt*scrollWithBuffer:      true
 URxvt*scrollTtyKeypress:     true
-
-! ! true transparency
-! URxvt*depth: 32
-! URxvt*background: rgba:1111/1111/1111/cccc
-
-! ! fake transparency
-! URxvt*transparent: true
-! URxvt*shading: 20
 
 ! Disable ctrl-shift keycap picture insert mode
 URxvt*iso14755:         false
