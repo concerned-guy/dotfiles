@@ -1,6 +1,6 @@
 [user]
     email = vuongbaoson.1998@gmail.com
-    name = S
+    name = s
 [alias]
     st = status
     co = checkout
@@ -9,5 +9,3 @@
     ci = commit
 [credential]
     helper = store
-[core]
-    excludesfile = /home/s/.gitignorerc

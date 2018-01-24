@@ -85,7 +85,7 @@ skin=gotar
 
 [Layout]
 message_visible=0
-keybar_visible=1
+keybar_visible=0
 xterm_title=1
 output_lines=0
 command_prompt=1
@@ -93,7 +93,7 @@ menubar_visible=0
 free_space=1
 horizontal_split=0
 vertical_equal=1
-left_panel_size=42
+left_panel_size=84
 horizontal_equal=1
 top_panel_size=1
 
@@ -113,6 +113,8 @@ base_color=
 xterm-256color=
 color_terminals=
 
+screen-256color=
+
 [HotlistConfig]
 expanded_view_of_groups=0
 
@@ -121,7 +123,7 @@ show_mini_info=true
 kilobyte_si=false
 mix_all_files=false
 show_backups=true
-show_dot_files=false
+show_dot_files=true
 fast_reload=false
 fast_reload_msg_shown=false
 mark_moves_down=true

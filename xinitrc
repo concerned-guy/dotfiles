@@ -1,11 +1,11 @@
 # X startup script
 
-cat "$HOME/.Xresources" "$(find $HOME/.Xcolor.d/ -type f | shuf -n 1)" | xrdb -load - &
-xsetroot -cursor_name left_ptr &
-setxkbmap -option ctrl:nocaps &
-xset r rate 450 30 &
-tp d &
-wallpaper.sh &
+cat ~/.Xresources "$(find ~/.Xcolor.d/ -type f | shuf -n 1)" | xrdb -load - &
+if [ -d ~/bin ]; then
+   keyboard.sh &
+   tp d &
+   wallpaper.sh &
+fi
 
 devmon &
 emacs --daemon &
