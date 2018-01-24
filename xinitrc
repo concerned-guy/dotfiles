@@ -1,6 +1,6 @@
 # X startup script
 
-cat ~/.Xresources "$(find ~/.Xcolor.d/ -type f | shuf -n 1)" | xrdb -load - &
+cat ~/.Xresources "$(ls ~/.Xcolor.d | shuf -n 1)" | xrdb -load - &
 if [ -d ~/bin ]; then
    keyboard.sh &
    tp d &
