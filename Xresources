@@ -11,7 +11,6 @@ Xft*hintstyle:          hintslight
 ! Basics
 URxvt*termName:         xterm-256color
 URxvt*font:             xft:liberation mono-10
-URxvt*geometry:         88x28
 
 ! Behavior
 URxvt*cursorBlink:           false

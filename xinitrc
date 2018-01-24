@@ -1,6 +1,6 @@
 # X startup script
 
-cat ~/.Xresources "$(ls ~/.Xcolor.d | shuf -n 1)" | xrdb -load - &
+cat ~/.Xresources "$(find ~/.Xcolor.d/ -not -type d | shuf -n 1)" | xrdb -load - &
 if [ -d ~/bin ]; then
    keyboard.sh &
    tp d &
@@ -20,8 +20,8 @@ while sleep 1; do
 done &
 exec dwm
 
-# NOTE: Requires these packages
+# NOTE: The script requires these packages
 #   feh imagemagick
-#   emacs ibus lxqt-notificationd udevil
-#   xscreensaver netpbm
+#   emacs ibus lxqt-notificationd udevil xscreensaver
 #   sutils-git
+#   dwm
