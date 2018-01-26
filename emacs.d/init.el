@@ -10,7 +10,8 @@
 ;; Globals
 (setq-default tab-width 4 ;; tab equals 4 spaces
               indent-tabs-mode nil ;; spaces instead of tabs
-              require-final-newline t) ;; newline before EOF
+              require-final-newline t ;; newline before EOF
+              vc-follow-symlinks t) ;; follow links in link farms
 ;; backup in emacs dir
 (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/autosaves/" t))
       backup-directory-alist '((".*" . "~/.emacs.d/backups/")))
@@ -33,7 +34,6 @@
 (projectile-mode)
 (recentf-mode)
 (smex-initialize)
-(show-paren-mode)
 (whole-line-or-region-mode)
 (xclip-mode)
 (yas-global-mode)
@@ -82,8 +82,7 @@
 (add-hook 'python-mode-hook 'ggtags-mode) ;; python
 
 ;; projectile-mode
-(add-to-list 'projectile-other-file-alist '("ino" "h" "hpp" "ipp"))
-(add-to-list 'projectile-other-file-alist '("h" "ino" "c" "cc" "cpp" "ipp" "hpp" "cxx" "ixx" "hxx" "m" "mm"))
+(add-to-list 'projectile-other-file-alist '("ino" "h"))
 (add-to-list 'projectile-project-root-files-bottom-up "platformio.ini")
 (projectile-register-project-type 'platformio
                                   '("platformio.ini")
@@ -109,7 +108,7 @@
 (setq recentf-auto-cleanup 'never
       recentf-max-saved-items 200)
 
-;; smart-compile && compilation-mode
+;; smart-compile and compilation-mode
 (require 'smart-compile)
 (setq compilation-read-command nil
       compilation-scroll-output t)

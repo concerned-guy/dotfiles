@@ -51,3 +51,4 @@ map [fullscreen] d scroll half-down
 map [normal]     d scroll half-down
 
 map [fullscreen] p toggle_page_mode
+map [normal]     p toggle_page_mode
