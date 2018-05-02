@@ -1,0 +1,5 @@
+directory = ~/usr/tmp
+session = ~/.rtorrent
+schedule = watch_directory,5,5,load_start=~/usr/tmp/*.torrent
+dht = disable
+

@@ -1,0 +1,5 @@
+escape ^Ll
+altscreen on
+vbell off
+startup_message off
+defscrollback 16383

@@ -1,4 +1,4 @@
-! X server resources
+! Xorg
 
 ! Infinality
 Xft*lcdfilter:          lcddefault
@@ -8,18 +8,16 @@ Xft*rgba:               rgb
 Xft*hinting:            true
 Xft*hintstyle:          hintslight
 
-! Basics
-URxvt*termName:         xterm-256color
-URxvt*font:             xft:liberation mono-10
-
 ! Behavior
-URxvt*cursorBlink:           false
-URxvt*saveLines:             65535
-URxvt*urgentOnBell:          true
-URxvt*scrollBar:             false
-URxvt*scrollTtyOutput:       false
-URxvt*scrollWithBuffer:      true
-URxvt*scrollTtyKeypress:     true
+URxvt*font:                 xft:monospace-10
+URxvt*geometry:             100x32
+URxvt*termName:             xterm
+URxvt*cursorBlink:          false
+URxvt*saveLines:            65535
+URxvt*scrollBar:            false
+URxvt*scrollTtyOutput:      false
+URxvt*scrollWithBuffer:     true
+URxvt*scrollTtyKeypress:    true
 
 ! Disable ctrl-shift keycap picture insert mode
 URxvt*iso14755:         false

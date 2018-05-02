@@ -1,14 +1,5 @@
-#
-# ~/.bashrc
-#
-
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-alias ls='ls --color=auto'
-
-# Minimalistic
+# Minimalist
 alias e='emacsclient -t'
+alias ls='ls --color=auto'
 export EDITOR='emacsclient -t'
-export MC_XDG_OPEN='exo-open'
-export PATH="$HOME/bin:$PATH"
-
+export PS1='\u[\W]\$ '

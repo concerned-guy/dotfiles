@@ -1,27 +1,7 @@
 # X startup script
 
-cat ~/.Xresources "$(find ~/.Xcolor.d/ -not -type d | shuf -n 1)" | xrdb -load - &
-if [ -d ~/bin ]; then
-   keyboard.sh &
-   tp d &
-   wallpaper.sh &
-fi
-
-devmon &
+xrandr | grep "HDMI-1 connected" && xrandr --output eDP-1 --off --output HDMI-1 --auto &
+feh --bg-scale --no-fehbg ~/usr/img/$(shuf -n1 ~/usr/img/art.txt) &
+cat $(shuf -e -n1 ~/.Xcolor.d/*) ~/.Xresources | xrdb -load - &
 emacs --daemon &
-ibus-daemon &
-# mpd &
-lxqt-notificationd &
-xscreensaver -no-splash &
-
-# dwm status line
-while sleep 1; do
-  xsetroot -name "[ BAT $(battery) ][ VOL $(volume) ][ $(date '+%R') ]"
-done &
-exec dwm
-
-# NOTE: The script requires these packages
-#   feh imagemagick
-#   emacs ibus lxqt-notificationd udevil xscreensaver
-#   sutils-git
-#   dwm
+exec icewm
