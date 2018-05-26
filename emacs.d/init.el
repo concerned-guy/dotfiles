@@ -18,7 +18,7 @@
 (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/autosaves/" t))
       backup-directory-alist '((".*" . "~/.emacs.d/backups/")))
 ;; random theme
-(setq user-themes '(wombat sanityinc-tomorrow-eighties))
+(setq user-themes '(sanityinc-tomorrow-eighties))
 (load-theme (nth (random (length user-themes)) user-themes) t)
 
 ;; ==================================================
@@ -37,6 +37,7 @@
 (recentf-mode)
 (smex-initialize)
 (whole-line-or-region-mode)
+(xclip-mode)
 (yas-global-mode)
 
 ;; ==================================================
@@ -53,6 +54,16 @@
 ;; newline/space at brackets
 (global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "C-j") 'newline-and-indent)
+(global-set-key (kbd "SPC") 'electric-space)
+(defun electric-space ()
+  "Proper space for brackets."
+  (interactive)
+  (let ((open-delims (or (and (looking-back "(" 1) (looking-at ")"))
+                         (and (looking-back "{" 1) (looking-at "}"))
+                         (and (looking-back "<" 1) (looking-at ">"))
+                         (and (looking-back "\\[" 1) (looking-at "\\]")))))
+    (insert " ")
+    (when open-delims (save-excursion (insert " ")))))
 
 ;; ==================================================
 ;; Packages
@@ -62,6 +73,10 @@
 
 ;; c-mode
 (setq c-default-style "stroustrup")
+
+;; verilog-mode
+(setq verilog-linter "iverilog")
+(add-to-list 'auto-mode-alist '("\\.xdc\\'" . conf-mode))
 
 ;; ggtags-mode
 (add-hook 'c-mode-common-hook 'ggtags-mode) ;; c, c++, java
@@ -73,12 +88,17 @@
 ;; emmet-mode
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+(add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on web mode
 
 ;; web-mode
 (setq web-mode-markup-indent-offset 2
       web-mode-css-indent-offset 2
       web-mode-code-indent-offset 2)
+(add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+;; js-mode
+(setq js-indent-level 2)
 
 ;; org-mode
 (setq org-blank-before-new-entry nil
@@ -89,10 +109,9 @@
 (setq recentf-auto-cleanup 'never
       recentf-max-saved-items 200)
 
-;; smart-compile and compilation-mode
-(require 'smart-compile)
-(setq compilation-read-command nil
-      compilation-scroll-output t)
+;; compilation-mode
+(setq-default compilation-read-command nil
+              compilation-scroll-output t)
 
 ;; rainbow-delimiter-mode
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)

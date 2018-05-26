@@ -218,7 +218,7 @@
 # TaskBarAutoHide=0 # 0/1
 
 #  Auto show task bar when fullscreen window active
-# TaskBarFullscreenAutoShow=1 # 0/1
+TaskBarFullscreenAutoShow=0 # 0/1
 
 #  Show clock on task bar
 # TaskBarShowClock=1 # 0/1

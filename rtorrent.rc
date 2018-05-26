@@ -1,5 +1,5 @@
 directory = ~/usr/tmp
 session = ~/.rtorrent
+upload_rate = 1400
 schedule = watch_directory,5,5,load_start=~/usr/tmp/*.torrent
-dht = disable
-
+dht = auto

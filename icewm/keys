@@ -12,10 +12,10 @@
 key "Alt+Ctrl+t"        urxvt
 key "Alt+Ctrl+e"        urxvt -e alsamixer
 key "Alt+Ctrl+a"        zathura
-# key "Alt+Ctrl+s"        seamonkey
 key "Alt+Ctrl+s"        xlinks -g ddg.gg
 key "Alt+Ctrl+Del"      sudo -n poweroff
 key "Alt+Ctrl+Insert"   sudo -n reboot
+key "Print"             scrot -e 'mv $f ~/usr/img/shot/'
 
 # "Multimedia key" bindings for XFree86. Gather the keycodes of your
 # advanced function keys by watching the output of the xev command whilest

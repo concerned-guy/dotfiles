@@ -1,5 +1,7 @@
 escape ^Ll
+
+startup_message off
 altscreen on
 vbell off
-startup_message off
+
 defscrollback 16383
