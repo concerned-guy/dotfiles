@@ -1,7 +1,5 @@
-escape ^Ll
-
 startup_message off
-altscreen on
-vbell off
-
 defscrollback 16383
+altscreen on
+escape ^Ll
+vbell off

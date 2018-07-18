@@ -31,10 +31,9 @@ set recolor-lightcolor          "#fafafa" #00
 set recolor-darkcolor           "#212121" #06
 
 # settings
-set window-width 800
-set window-height 700
+set window-height 675
+set scroll-full-overlap 0.1
 set selection-clipboard clipboard
-set scroll-full-overlap 0.10
 
 # key bindings
 map [fullscreen] , navigate previous
@@ -49,3 +48,8 @@ map [fullscreen] u scroll half-up
 map [normal]     u scroll half-up
 map [fullscreen] d scroll half-down
 map [normal]     d scroll half-down
+
+map [fullscreen] <BackSpace> scroll half-up
+map [normal]     <BackSpace> scroll half-up
+map [fullscreen] <Return> scroll half-down
+map [normal]     <Return> scroll half-down

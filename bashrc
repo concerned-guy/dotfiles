@@ -1,5 +1,5 @@
 # Minimalist
-alias e='emacsclient -t'
-alias ls='ls --color=auto'
-export EDITOR='emacsclient -t'
-export PS1='\u[\W]\$ '
+alias e='emacsclient -t --alternate-editor='
+alias ls='ls --color'
+export EDITOR='emacsclient -t --alternate-editor='
+function wn() { /usr/local/bin/wn $* -over; }

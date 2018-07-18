@@ -1,4 +1,4 @@
-! Xorg
+! Initialize X resource database
 
 ! Infinality
 Xft*lcdfilter:          lcddefault
@@ -8,9 +8,9 @@ Xft*rgba:               rgb
 Xft*hinting:            true
 Xft*hintstyle:          hintslight
 
-! Behavior
-URxvt*font:                 xft:monospace-10
-URxvt*geometry:             100x32
+! URxvt Behavior
+URxvt*font:                 xft:misc fixed-10
+URxvt*geometry:             95x49
 URxvt*termName:             xterm
 URxvt*cursorBlink:          false
 URxvt*saveLines:            65535
