@@ -1,4 +1,4 @@
-! Initialize X resource database
+! X Resource Database Initialization
 
 ! Infinality
 Xft*lcdfilter:          lcddefault
