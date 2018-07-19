@@ -57,12 +57,12 @@ Style * DecorateTransient
 Style * IconBox 700x84-220+12, IconFill right bottom
 
 # Try to place in open space, otherwise at random
-Style * MinOverlapPercentPlacement
+Style * MinOverlapPlacement, MinOverlapPercentPlacement
 
 # Icons that I got from https://www.rpi.edu/dept/acm/graphics/xpm/
-Style urxvt         Icon term.xpm,      NoTitle
-Style emacsclient   Icon emacs.xpm
-Style alsamixer                         StaysOnTop
+Style urxvt         Icon term.xpm,      NoTitle,
+Style emacsclient   Icon emacs.xpm,
+Style alsamixer                         StaysOnTop,
 
 # Now for mouse commands in the root window R:
 # Left mouse button brings up Root-Menu; middle button brings up Window-Ops
