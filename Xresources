@@ -9,7 +9,7 @@ Xft*hinting:            true
 Xft*hintstyle:          hintslight
 
 ! URxvt Behavior
-URxvt*font:                 xft:misc fixed-10
+URxvt*font:                 fixed
 URxvt*geometry:             95x49
 URxvt*termName:             xterm
 URxvt*cursorBlink:          false
