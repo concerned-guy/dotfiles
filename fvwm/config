@@ -133,17 +133,17 @@ Mouse 3 FTSI A Iconify
 Mouse 2 FTSI A RaiseLower
 
 # Keybindings for desktop navigation (4 is Mod4 - or Super Key)
-Key 1   A 4 GotoDesk 0 0
-Key 2   A 4 GotoDesk 0 1
-Key 3   A 4 GotoDesk 0 2
-Key 4   A 4 GotoDesk 0 3
-Key F1  A M Menu Root-Menu
-Key F2  A M FvwmTalk
-Key F3  A M RaiseLower
-Key F4  A M Close
-Key F7  A M Move
-Key F8  A M Resize
-Key F9  A M Iconify
+Key 1 A 4 GotoDesk 0 0
+Key 2 A 4 GotoDesk 0 1
+Key 3 A 4 GotoDesk 0 2
+Key 4 A 4 GotoDesk 0 3
+Key F1 A M Menu Root-Menu
+Key F2 A M FvwmTalk
+Key F3 A M RaiseLower
+Key F4 A M Close
+Key F7 A M Move
+Key F8 A M Resize
+Key F9 A M Iconify
 Key F10 A M Maximize 0 100
 Key F10 A SM Maximize 100 100
 Key Tab A M WindowList (CurrentPage) CurrentAtEnd
@@ -155,17 +155,19 @@ Key Delete A CM Exec exec sudo -n poweroff
 # to type (for example, when no terminal window is handy) or impossible
 # to activate from a command line (namely Fvwm's builtin modules).
 AddtoMenu Root-Menu "Shell &terminal" \
-  Exec exec urxvt -geometry 107x49 -fg white -bg black
+  Exec exec urxvt -geometry 102x50 -fg white -bg black
 + "" Nop
-+ "&Emacs" Exec exec urxvt -geometry 104x57 -fg \#ffe97a -bg \#002b00 -cr Brown -e emacsclient -t --alternate-editor=
++ "&Emacs" Exec exec urxvt -geometry 100x58 -fg \#ffe97a -bg \#002b00 \
+           -cr Brown -e emacsclient -t --alternate-editor=
 + "" Nop
 + "&Internet" Exec exec firefox
-+ "Internet (&Lightweight)" Exec exec xlinks -g ddg.gg -mode 1000x675 -download-dir ~/usr/tmp -save-url-history 0
++ "Internet (&Lightweight)" Exec exec xlinks -g ddg.gg -mode 1000x675 \
+                            -download-dir ~/usr/tmp -save-url-history 0
 + "&PDF Reader" Exec exec zathura
 + "" Nop
 + "Sho&w window info" FvwmIdent
 + "Talk to F&vwm" FvwmTalk
-+ "Volu&me control" Exec exec urxvt -geometry 16x24 -e alsamixer
++ "Volu&me control" Exec exec urxvt -geometry 16x24-0-0 -e alsamixer
 #+ "Disable AutoRaise" KillModule FvwmAuto
 #+ "Enable AutoRaise"  Module FvwmAuto 500 Raise Nop
 + "" Nop
@@ -214,9 +216,10 @@ AddToMenu Window-Ops "Window Operations" Title
 *FvwmButtonsFont None
 *FvwmButtonsBack Orange
 *FvwmButtonsPadding 0 0
-*FvwmButtons(4x4+4+0, Swallow(UseOld,Respawn) XClock "Exec exec xclock -d -brief -face 'misc fixed-12:style=Bold' -fg green -bg dimgrey")
+*FvwmButtons(4x4+4+0, Swallow(UseOld,Respawn) XClock \
+  "Exec xclock -d -brief -face 'misc fixed-12:style=Bold' -bg dimgrey -fg green")
 *FvwmButtons(8x1+0+4, Swallow(UseOld,Respawn) \
-  XLoad "Exec exec xload -nolabel -geometry 128x12+0+0 -bg dimgrey -fg white")
+  XLoad "Exec xload -nolabel -geometry 128x12+0+0 -bg dimgrey -fg white")
 
 *FvwmButtons(2x2+0+0, Icon zero.xpm, Action "GotoDesk 0 0")
 *FvwmButtons(2x2+2+0, Icon one.xpm, Action "GotoDesk 0 1")
@@ -238,12 +241,14 @@ AddToFunc Basic-Setup "I" Module FvwmButtons
 AddToFunc InitFunction "I" Echo initializing...
 + "I" Function Basic-Setup
 + "I" GotoDesk 0 1
-+ "I" Exec exec xlinks -g ddg.gg -mode 1000x675 -download-dir ~/usr/tmp -save-url-history 0
++ "I" Exec exec xlinks -g ddg.gg -mode 1000x675 \
+      -download-dir ~/usr/tmp -save-url-history 0
 + "I" Wait Links
 + "I" GotoDesk 0 0
-+ "I" Exec exec urxvt -geometry 104x57 -fg \#ffe97a -bg \#002b00 -cr Brown -e emacsclient -t --alternate-editor=
++ "I" Exec exec urxvt -geometry 100x58 -fg \#ffe97a -bg \#002b00 \
+      -cr Brown -e emacsclient -t --alternate-editor=
 + "I" Wait emacsclient
-+ "I" Exec exec urxvt -geometry 107x49 -fg white -bg black
++ "I" Exec exec urxvt -geometry 102x50+618-0 -fg white -bg black
 + "I" Wait urxvt
 + "I" Echo ready...
 
