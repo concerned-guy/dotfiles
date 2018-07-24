@@ -1,5 +1,5 @@
 # X startup script
 xrandr | grep "HDMI-1 conn" &&
 xrandr --output eDP-1 --off --output HDMI-1 --auto &
-xrdb -merge ~/.Xresources
+cat $(shuf -e -n 1 .Xcolor.d/*) .Xresources | xrdb -load - &
 exec fvwm
