@@ -57,12 +57,12 @@ Style * DecorateTransient
 Style * IconBox 700x84-220+12, IconFill right bottom
 
 # Try to place in open space, otherwise at random
-Style * MinOverlapPlacement, MinOverlapPercentPlacement
+Style * SmartPlacement, RandomPlacement
+GlobalOpts SmartPlacementIsReallySmart
+#Style * MinOverlapPlacement, MinOverlapPercentPlacement
 
 # Icons that I got from https://www.rpi.edu/dept/acm/graphics/xpm/
-Style urxvt         Icon term.xpm,      NoTitle,
-Style emacsclient   Icon emacs.xpm,
-Style alsamixer                         StaysOnTop,
+Style urxvt Icon term.xpm, NoTitle
 
 # Now for mouse commands in the root window R:
 # Left mouse button brings up Root-Menu; middle button brings up Window-Ops
@@ -133,10 +133,10 @@ Mouse 3 FTSI A Iconify
 Mouse 2 FTSI A RaiseLower
 
 # Keybindings for desktop navigation (4 is Mod4 - or Super Key)
-Key 1 A 4 GotoDesk 0 0
-Key 2 A 4 GotoDesk 0 1
-Key 3 A 4 GotoDesk 0 2
-Key 4 A 4 GotoDesk 0 3
+Key 1 A 4 Desk 0 0
+Key 2 A 4 Desk 0 1
+Key 3 A 4 Desk 0 2
+Key 4 A 4 Desk 0 3
 Key F1 A M Menu Root-Menu
 Key F2 A M FvwmTalk
 Key F3 A M RaiseLower
@@ -146,9 +146,9 @@ Key F8 A M Resize
 Key F9 A M Iconify
 Key F10 A M Maximize 0 100
 Key F10 A SM Maximize 100 100
-Key Tab A M WindowList (CurrentPage) CurrentAtEnd
-Key Insert A CM Exec exec sudo -n reboot
-Key Delete A CM Exec exec sudo -n poweroff
+Key Tab A M WindowList CurrentDesk "Prev FlipFocus"
+Key Insert A CM Exec exec sudo -n shutdown -r now
+Key Delete A CM Exec exec sudo -n shutdown now
 
 # The root menus are next. Since I'm perfectly happy with launching programs
 # from a command line, my menus mostly provide functions that are difficult
@@ -157,26 +157,26 @@ Key Delete A CM Exec exec sudo -n poweroff
 AddtoMenu Root-Menu "Shell &terminal" \
   Exec exec urxvt -geometry 102x50 -fg white -bg black
 + "" Nop
-+ "&Emacs" Exec exec urxvt -geometry 100x58 -fg \#ffe97a -bg \#002b00 \
++ "&Emacs" Exec exec urxvt -geometry 100x57 -fg \#ffe97a -bg \#002b00 \
            -cr Brown -e emacsclient -t --alternate-editor=
 + "" Nop
 + "&Internet" Exec exec firefox
 + "Internet (&Lightweight)" \
-  Exec exec xlinks -g ddg.gg -mode 1000x675 \
+  Exec exec links -g ddg.gg -mode 1000x675 \
   -download-dir ~/usr/tmp -save-url-history 0
 + "&PDF Reader" Exec exec zathura
 + "" Nop
-+ "Play Some &Jazz" Exec exec urxvt -e bash -c "find ~/usr/msc/mus/jazz | \
-                    grep flac$ | mpv --playlist=- --shuffle --no-audio-display"
-+ "Play Some Bl&ues" Exec exec urxvt -e bash -c "find ~/usr/msc/mus/blues | \
-                     grep flac$ | mpv --playlist=- --shuffle --no-audio-display"
-+ "Play Some Pia&no" Exec exec urxvt -e bash -c "find ~/usr/msc/mus/piano | \
-                     grep flac$ | mpv --playlist=- --shuffle --no-audio-display"
++ "Play Some &Jazz"  Exec exec urxvt -e sh -c "find ~/usr/msc/mus/jazz | \
+                     grep flac$ | \
+                     mpv --playlist=- --shuffle --no-audio-display"
++ "Play Some Pia&no" Exec exec urxvt -e sh -c "find ~/usr/msc/mus/piano | \
+                     grep flac$ | \
+                     mpv --playlist=- --shuffle --no-audio-display"
 + "" Nop
 + "" Nop
-+ "Sho&w window info" FvwmIdent
-+ "Talk to F&vwm" FvwmTalk
-+ "Volu&me control" Exec exec urxvt -geometry 16x24-0-0 -e alsamixer
++ "Show window info" FvwmIdent
++ "Talk to Fvwm" FvwmTalk
+#+ "Volu&me control" Exec exec urxvt -geometry 16x24-0-0 -e alsamixer
 #+ "Disable AutoRaise" KillModule FvwmAuto
 #+ "Enable AutoRaise"  Module FvwmAuto 500 Raise Nop
 + "" Nop
@@ -225,17 +225,16 @@ AddToMenu Window-Ops "Window Operations" Title
 *FvwmButtonsFont None
 *FvwmButtonsBack Orange
 *FvwmButtonsPadding 0 0
-*FvwmButtons(4x4+4+0, Swallow(UseOld,Respawn) XClock \
-  "Exec xclock -d -brief -face 'misc fixed-12:style=Bold' -bg dimgrey -fg green")
+*FvwmButtons(4x4+4+0, Swallow(UseOld,Respawn) ASClock "Exec exec asclock")
 *FvwmButtons(8x1+0+4, Swallow(UseOld,Respawn) \
   XLoad "Exec xload -nolabel -geometry 128x12+0+0 -bg dimgrey -fg white")
 
-*FvwmButtons(2x2+0+0, Icon zero.xpm, Action "GotoDesk 0 0")
-*FvwmButtons(2x2+2+0, Icon one.xpm, Action "GotoDesk 0 1")
-*FvwmButtons(2x2+0+2, Icon two.xpm, Action "GotoDesk 0 2")
-*FvwmButtons(2x2+2+2, Icon three.xpm, Action "GotoDesk 0 3")
+*FvwmButtons(2x2+0+0, Icon zero.xpm, Action "Desk 0 0")
+*FvwmButtons(2x2+2+0, Icon one.xpm, Action "Desk 0 1")
+*FvwmButtons(2x2+0+2, Icon two.xpm, Action "Desk 0 2")
+*FvwmButtons(2x2+2+2, Icon three.xpm, Action "Desk 0 3")
 
-Style FvwmButtons FixedPosition, NeverFocus, NoTitle, NoHandles, Sticky, WindowListSkip
+Style FvwmButtons ClickToFocus, NoTitle, NoHandles, Sticky, WindowListSkip
 
 # Finally, the initialization and restart logic.
 # (The pattern "mod 2 2" is an attractive 2x2 plaid texture.)
@@ -249,15 +248,15 @@ AddToFunc Basic-Setup "I" Module FvwmButtons
 
 AddToFunc InitFunction "I" Echo initializing...
 + "I" Function Basic-Setup
-+ "I" GotoDesk 0 1
-+ "I" Exec exec xlinks -g ddg.gg -mode 1000x675 \
++ "I" Desk 0 1
++ "I" Exec exec links -g ddg.gg -mode 1000x675 \
       -download-dir ~/usr/tmp -save-url-history 0
 + "I" Wait Links
-+ "I" GotoDesk 0 0
-+ "I" Exec exec urxvt -geometry 100x58+0+0 -fg \#ffe97a -bg \#002b00 \
++ "I" Desk 0 0
++ "I" Exec exec urxvt -geometry 100x57+0+11 -fg \#ffe97a -bg \#002b00 \
       -cr Brown -e emacsclient -t --alternate-editor=
 + "I" Wait emacsclient
-+ "I" Exec exec urxvt -geometry 102x50+618+100 -fg white -bg black
++ "I" Exec exec urxvt -geometry 102x50+618+94 -fg white -bg black
 + "I" Wait urxvt
 + "I" Echo ready...
 

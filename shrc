@@ -1,0 +1,3 @@
+# Minimalist
+export EDITOR='emacsclient -t --alternate-editor='
+alias e='emacsclient -t --alternate-editor='

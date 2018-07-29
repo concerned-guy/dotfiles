@@ -1,5 +1,0 @@
-startup_message off
-defscrollback 16383
-altscreen on
-escape ^Ll
-vbell off
