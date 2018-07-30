@@ -5,9 +5,9 @@
 
 ;; Global behavior
 (setq-default tab-width 4           ;tab equals 4 spaces
-	          c-basic-offset 4      ;C language indentation
-	          indent-tabs-mode nil  ;spaces instead of tabs
-	          vc-follow-symlinks t) ;follow links in link farms
+              c-basic-offset 4      ;C language indentation
+              indent-tabs-mode nil  ;spaces instead of tabs
+              vc-follow-symlinks t) ;follow links in link farms
 
 ;; Store backups in ~/.emacs.d
 (setq auto-save-file-name-transforms '((".*" "~/.emacs.d/autosaves/" t))
