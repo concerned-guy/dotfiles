@@ -154,6 +154,8 @@ Key Delete A CM Exec exec sudo -n shutdown now
 # to activate from a command line (namely Fvwm's builtin modules).
 AddtoMenu Root-Menu "Shell &terminal" \
   Exec exec urxvt -geometry 102x49 -fg white -bg black
++ "Shell te&rminal (BIG FONT)" \
+  Exec exec urxvt -fn "-misc-fixed-medium-r-*-*-14-*-*-*-*-*-*-*"
 + "" Nop
 + "&Emacs" Exec exec urxvt -geometry 100x57 -fg \#ffe97a -bg \#002b00 \
            -cr Brown -e emacs
