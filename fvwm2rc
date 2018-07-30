@@ -5,8 +5,7 @@
 # and a few buttons for accessing independent desktops.
 
 # Next, specify the paths for all icons (.xpm files) that I'm using:
-# PixmapPath /usr/share/icons:/home/icons
-ImagePath /home/icons:/usr/share/icons
+ImagePath /usr/local/share/pixmaps/fvwm:/usr/share/icons
 
 # I tried mxn desktops and didn't like them.
 DeskTopSize 1x1
@@ -57,12 +56,11 @@ Style * DecorateTransient
 Style * IconBox 700x84-220+12, IconFill right bottom
 
 # Try to place in open space, otherwise at random
-Style * SmartPlacement, RandomPlacement
-GlobalOpts SmartPlacementIsReallySmart
-#Style * MinOverlapPlacement, MinOverlapPercentPlacement
+Style * MinOverlapPlacement, MinOverlapPercentPlacement
 
-# Icons that I got from https://www.rpi.edu/dept/acm/graphics/xpm/
+# Xpm can be downloaded at https://www.rpi.edu/dept/acm/graphics/xpm/
 Style urxvt Icon term.xpm, NoTitle
+Style emacs Icon xemacs.xpm
 
 # Now for mouse commands in the root window R:
 # Left mouse button brings up Root-Menu; middle button brings up Window-Ops
@@ -146,7 +144,7 @@ Key F8 A M Resize
 Key F9 A M Iconify
 Key F10 A M Maximize 0 100
 Key F10 A SM Maximize 100 100
-Key Tab A M WindowList CurrentDesk "Prev FlipFocus"
+Key Tab A M WindowList (CurrentPage)
 Key Insert A CM Exec exec sudo -n shutdown -r now
 Key Delete A CM Exec exec sudo -n shutdown now
 
@@ -155,27 +153,24 @@ Key Delete A CM Exec exec sudo -n shutdown now
 # to type (for example, when no terminal window is handy) or impossible
 # to activate from a command line (namely Fvwm's builtin modules).
 AddtoMenu Root-Menu "Shell &terminal" \
-  Exec exec urxvt -geometry 102x50 -fg white -bg black
+  Exec exec urxvt -geometry 102x49 -fg white -bg black
 + "" Nop
 + "&Emacs" Exec exec urxvt -geometry 100x57 -fg \#ffe97a -bg \#002b00 \
-           -cr Brown -e emacsclient -t --alternate-editor=
+           -cr Brown -e emacs
 + "" Nop
 + "&Internet" Exec exec firefox
-+ "Internet (&Lightweight)" \
-  Exec exec links -g ddg.gg -mode 1000x675 \
-  -download-dir ~/usr/tmp -save-url-history 0
++ "Internet (&Lightweight)" Exec exec links -g ddg.gg -mode 1000x675 \
+                            -download-dir ~/usr/tmp -save-url-history 0
 + "&PDF Reader" Exec exec zathura
 + "" Nop
-+ "Play Some &Jazz"  Exec exec urxvt -e sh -c "find ~/usr/msc/mus/jazz | \
-                     grep flac$ | \
-                     mpv --playlist=- --shuffle --no-audio-display"
-+ "Play Some Pia&no" Exec exec urxvt -e sh -c "find ~/usr/msc/mus/piano | \
-                     grep flac$ | \
-                     mpv --playlist=- --shuffle --no-audio-display"
++ "Play &Jazz"  Exec exec urxvt -e sh -c "find ~/usr/msc/mus/jazz | \
+                grep flac$ | mpv --playlist=- --shuffle --no-audio-display"
++ "Play Pia&no" Exec exec urxvt -e sh -c "find ~/usr/msc/mus/piano | \
+                grep flac$ | mpv --playlist=- --shuffle --no-audio-display"
 + "" Nop
 + "" Nop
-+ "Show window info" FvwmIdent
-+ "Talk to Fvwm" FvwmTalk
++ "Show &window info" FvwmIdent
++ "Talk to F&vwm" FvwmTalk
 #+ "Volu&me control" Exec exec urxvt -geometry 16x24-0-0 -e alsamixer
 #+ "Disable AutoRaise" KillModule FvwmAuto
 #+ "Enable AutoRaise"  Module FvwmAuto 500 Raise Nop
@@ -253,10 +248,10 @@ AddToFunc InitFunction "I" Echo initializing...
       -download-dir ~/usr/tmp -save-url-history 0
 + "I" Wait Links
 + "I" Desk 0 0
-+ "I" Exec exec urxvt -geometry 100x57+0+11 -fg \#ffe97a -bg \#002b00 \
-      -cr Brown -e emacsclient -t --alternate-editor=
-+ "I" Wait emacsclient
-+ "I" Exec exec urxvt -geometry 102x50+618+94 -fg white -bg black
++ "I" Exec exec urxvt -geometry 100x57+0+0 -fg \#ffe97a -bg \#002b00 \
+      -cr Brown -e emacs
++ "I" Wait emacs
++ "I" Exec exec urxvt -geometry 102x49+618+98 -fg white -bg black
 + "I" Wait urxvt
 + "I" Echo ready...
 
