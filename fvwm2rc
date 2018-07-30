@@ -60,7 +60,7 @@ Style * MinOverlapPlacement, MinOverlapPercentPlacement
 
 # Xpm can be downloaded at https://www.rpi.edu/dept/acm/graphics/xpm/
 Style urxvt Icon term.xpm, NoTitle
-Style emacs Icon xemacs.xpm
+Style emacs Icon lemacs.xpm
 
 # Now for mouse commands in the root window R:
 # Left mouse button brings up Root-Menu; middle button brings up Window-Ops
