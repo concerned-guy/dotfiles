@@ -1,25 +1,14 @@
-!!! .Xresources --- X resource database initialization file
+!!! .Xresources --- X resource database initialization
 
-!! Fontconfig alternative for X applications
-Xft*antialias:          true
-Xft*hinting:            true
-Xft*hintstyle:          hintslight
-Xft*lcdfilter:          lcddefault
-Xft*rgba:               rgb
+!! Fontconfig alternatives
+Xft*antialias:              true
+Xft*hinting:                true
+Xft*hintstyle:              hintslight
+Xft*lcdfilter:              lcddefault
+Xft*rgba:                   rgb
 
-!! Behavior of newly opened terminal windows
+!! Shell terminal
 URxvt*geometry:             96x48
-URxvt*saveLines:            65535
 URxvt*termName:             xterm
 URxvt*cursorBlink:          false
-URxvt*scrollBar:            false
-URxvt*scrollTtyOutput:      false
-URxvt*scrollTtyKeypress:    true
-URxvt*scrollWithBuffer:     true
-
-!! Disable ctrl-shift keycap picture insert mode
-URxvt*iso14755:             false
-URxvt*iso14755_52:          false
-
-!! Load these perl extensions
 URxvt*perl-ext-common:      selection-to-clipboard

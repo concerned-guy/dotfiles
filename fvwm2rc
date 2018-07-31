@@ -38,7 +38,7 @@ Style * ClickToFocus, ClickToFocusRaises
 Style * BorderWidth 7, HandleWidth 7
 
 # I'm glad I don't have to use the ugly "unknown1.xpm" that came as default...
-Style * Icon unknown.xpm
+Style * Icon default.xpm
 
 # The default colors for window titles and frames might as well be documented:
 Style * Color white/dimgrey
@@ -59,9 +59,9 @@ Style * IconBox 700x84-220+12, IconFill right bottom
 Style * MinOverlapPlacement, MinOverlapPercentPlacement
 
 # Xpm can be downloaded at https://www.rpi.edu/dept/acm/graphics/xpm/
-Style urxvt Icon term.xpm, NoTitle
-Style emacs Icon lemacs.xpm
-Style mupdf TileCascadePlacement
+Style Emacs Icon xemacs.xpm, NoTitle
+Style URxvt Icon term.xpm, NoTitle
+Style MuPDF TileCascadePlacement
 
 # Now for mouse commands in the root window R:
 # Left mouse button brings up Root-Menu; middle button brings up Window-Ops
@@ -154,21 +154,18 @@ Key Delete A CM Exec exec sudo -n shutdown now
 # to type (for example, when no terminal window is handy) or impossible
 # to activate from a command line (namely Fvwm's builtin modules).
 AddtoMenu Root-Menu "Shell &terminal" \
-  Exec exec urxvt -geometry 102x49 -fg white -bg black
+  Exec exec urxvt -fn 6x13 -geometry 102x49 -fg white -bg black -sr
 + "Shell te&rminal (BIG FONT)" \
-  Exec exec urxvt -fn "-misc-fixed-medium-r-*-*-14-*-*-*-*-*-*-*"
+  Exec exec urxvt -fn 7x14 -geometry 96x48 -fg white -bg black -sr
 + "" Nop
 + "&Emacs" \
-  Exec exec urxvt -geometry 100x57 -fg \#ffe97a -bg \#002b00 -cr Brown -e emacs
+  Exec exec emacs -fn 6x13 -geometry 100x57 -fg \#ffe97a -bg \#002b00 -cr Brown
 + "" Nop
 + "&Internet" Exec exec firefox
-+ "Internet (&Lightweight)" Exec exec links -g ddg.gg -mode 1000x675 \
-                            -download-dir ~/usr/tmp -save-url-history 0
-+ "" Nop
-+ "Play &Jazz"  Exec exec urxvt -e sh -c "find ~/usr/msc/mus/jazz | \
-                grep flac$ | mpv --playlist=- --shuffle --no-audio-display"
-+ "Play Pia&no" Exec exec urxvt -e sh -c "find ~/usr/msc/mus/piano | \
-                grep flac$ | mpv --playlist=- --shuffle --no-audio-display"
++ "Internet (&Lightweight)" \
+  Exec exec links -g -mode 1000x675 -download-dir ~/usr/tmp -save-url-history 0
++ "Play &Music" \
+  Exec exec sh -c "find ~/usr/mus -name '*.flac' | mpv --playlist=- --shuffle --force-window"
 + "" Nop
 + "" Nop
 + "Show &window info" FvwmIdent
@@ -245,15 +242,13 @@ AddToFunc Basic-Setup "I" Module FvwmButtons
 AddToFunc InitFunction "I" Echo initializing...
 + "I" Function Basic-Setup
 + "I" Desk 0 1
-+ "I" Exec exec links -g ddg.gg -mode 1000x675 \
-      -download-dir ~/usr/tmp -save-url-history 0
++ "I" Exec exec links -g -mode 1000x675 -download-dir ~/usr/tmp -save-url-history 0
 + "I" Wait Links
 + "I" Desk 0 0
-+ "I" Exec exec urxvt -geometry 100x57+0+0 -fg \#ffe97a -bg \#002b00 \
-      -cr Brown -e emacs
-+ "I" Wait emacs
-+ "I" Exec exec urxvt -geometry 102x49+618+98 -fg white -bg black
-+ "I" Wait urxvt
++ "I" Exec exec emacs -fn 6x13 -geometry 100x57+0+0 -fg \#ffe97a -bg \#002b00 -cr Brown
++ "I" Wait Emacs
++ "I" Exec exec urxvt -geometry 102x49+634+98 -fg white -bg black -sr
++ "I" Wait URxvt
 + "I" Echo ready...
 
 AddToFunc RestartFunction "I" Echo restarting...
