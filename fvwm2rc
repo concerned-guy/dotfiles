@@ -38,7 +38,7 @@ Style * ClickToFocus, ClickToFocusRaises
 Style * BorderWidth 7, HandleWidth 7
 
 # I'm glad I don't have to use the ugly "unknown1.xpm" that came as default...
-Style * Icon default.xpm
+Style * Icon fvwm.xpm
 
 # The default colors for window titles and frames might as well be documented:
 Style * Color white/dimgrey
@@ -164,8 +164,9 @@ AddtoMenu Root-Menu "Shell &terminal" \
 + "&Internet" Exec exec firefox
 + "Internet (&Lightweight)" \
   Exec exec links -g -mode 1000x675 -download-dir ~/usr/tmp -save-url-history 0
-+ "Play &Music" \
-  Exec exec sh -c "find ~/usr/mus -name '*.flac' | mpv --playlist=- --shuffle --force-window"
++ "" Nop
++ "Play &music" \
+  Exec exec urxvt -e sh -c "find ~/usr/mus -name '*.flac' | mplayer -playlist - -shuffle"
 + "" Nop
 + "" Nop
 + "Show &window info" FvwmIdent
