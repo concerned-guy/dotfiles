@@ -5,7 +5,7 @@
 # and a few buttons for accessing independent desktops.
 
 # Next, specify the paths for all icons (.xpm files) that I'm using:
-ImagePath /usr/local/share/pixmaps/fvwm:/usr/share/icons
+ImagePath /home/icons:/usr/share/icons
 
 # I tried mxn desktops and didn't like them.
 DeskTopSize 1x1
