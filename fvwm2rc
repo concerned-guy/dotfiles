@@ -166,7 +166,7 @@ AddtoMenu Root-Menu "Shell &terminal" \
   Exec exec links -g -mode 1000x675 -download-dir ~/usr/tmp -save-url-history 0
 + "" Nop
 + "Play &music" \
-  Exec exec urxvt -e sh -c "find ~/usr/mus -name '*.flac' | mplayer -playlist - -shuffle"
+  Exec find ~/usr/mus -name \*.flac | mpv --playlist=- --shuffle --force-window
 + "" Nop
 + "" Nop
 + "Show &window info" FvwmIdent
