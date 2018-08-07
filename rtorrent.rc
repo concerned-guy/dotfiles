@@ -1,7 +1,0 @@
-directory.default.set = ~/usr/tmp
-session.path.set = ~/.rtorrent
-throttle.global_up.max_rate.set_kb = 1400
-schedule2 = watch_directory,5,5,load.start=~/usr/tmp/*.torrent
-schedule2 = watch_direct0ry,5,5,load.start=~/usr/tmp/*.TORRENT
-trackers.use_udp.set = yes
-dht.mode.set = on
