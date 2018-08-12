@@ -91,6 +91,7 @@ GlobalOpts SmartPlacementIsReallySmart
 Style URxvt Icon jurrasic_park.xpm, NoTitle
 Style Emacs Icon notebook.xpm, NoTitle
 Style MuPDF DumbPlacement
+Style XEyes NoTitle, StaysOnTop, Sticky, WindowListSkip
 
 # (By the way, it's interesting to try "while(1) ;  xeyes & ; end".)
 
@@ -306,14 +307,21 @@ AddToFunc Basic-Setup "I" Module FvwmButtons
 
 AddToFunc InitFunction "I" Echo initializing...
 + "I" Function Basic-Setup
-+ "I" Desk 0 1
++ "I" Desk 0 2
 + "I" Exec exec links -g -mode 1000x675
 + "I" Wait Links
-+ "I" Desk 0 0
-+ "I" Exec exec urxvt -font 6x13 -geometry 102x50+634+94 -fg white -bg black -sr
++ "I" Desk 0 1
++ "I" Exec exec urxvt -font 6x13 -geometry 136x50+514+100 -fg \#fff4c0 -bg \#381900 -sr
 + "I" Wait urxvt
-+ "I" Exec exec emacs -font 6x13 -geometry 100x61+0+0 -fg \#ffe97a -bg \#002b00 -cr Brown
++ "I" Exec exec emacs -font 6x13 -geometry 80x61+0+0 -fg \#ffe97a -bg \#00002b -cr Brown
 + "I" Wait emacs
++ "I" Desk 0 0
++ "I" Exec exec urxvt -font 6x13 -geometry 136x50+514+100 -fg white -bg black -sr
++ "I" Wait urxvt
++ "I" Exec exec emacs -font 6x13 -geometry 80x61+0+0 -fg \#ffe97a -bg \#002b00 -cr Brown
++ "I" Wait emacs
++ "I" Exec exec xeyes -geometry 55x50-154+33 -fg DarkGreen -center Orange -outline dimgrey
++ "I" Wait xeyes
 + "I" Echo ready...
 
 AddToFunc RestartFunction "I" Echo restarting...
