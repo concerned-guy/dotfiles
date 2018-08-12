@@ -75,8 +75,7 @@ Style * SmartPlacement, RandomPlacement
 #  the documentation said that the GlobalOpts feature was "temporary"....)
 # GlobalOpts SmartPlacementIsReallySmart
 # Now in version 2.4, we do it this way:
-# Style * MinOverlapPlacement
-GlobalOpts SmartPlacementIsReallySmart
+Style * MinOverlapPlacement
 
 # XTerm gets the icon that I made from Royal Shell's web pages.
 # (It surely is protected by trademark, but it's just for me at home.)
@@ -88,7 +87,7 @@ GlobalOpts SmartPlacementIsReallySmart
 # Style Xmag Icon xmag.xpm
 # Style Metafont StaysOnTop
 # XPM at: ftp://ftp.cs.indiana.edu/pub/AIcons/desc/cl-48.tar.gz
-Style URxvt Icon jurrasic_park.xpm, NoTitle
+Style XTerm Icon jurrasic_park.xpm, NoTitle
 Style Emacs Icon notebook.xpm, NoTitle
 Style MuPDF DumbPlacement
 Style XEyes NoTitle, StaysOnTop, Sticky, WindowListSkip
@@ -181,15 +180,15 @@ Mouse 3 FTSI A RaiseLower
 # + "Emacs (small font)" Exec exec emacs -font my5x7
 # + "Emacs (as root)" Exec exec doit emacs -font my6x13 -bg DarkRed -cr black
 AddtoMenu Root-Menu "Shell terminal (BIG FONT)" \
-  Exec exec urxvt -font 9x15 -rv
+  Exec exec rxvt -font 9x15 -rv
 + "Shell &terminal (Normal Font)" \
-  Exec exec urxvt -font 6x13 -rv
+  Exec exec rxvt -font 6x13 -rv
 + "" Nop
 + "Emacs (BIG FONT)" Exec exec emacs -font 9x15
 + "&Emacs (Normal Font)" Exec exec emacs -font 6x13
 + "" Nop
 + "&Internet" Exec exec links -g -mode 1000x675
-+ "&Play music" Exec exec urxvt -e mplayer http://wbgo.streamguys.net/wbgo
++ "&Play music" Exec exec rxvt -e mplayer http://wbgo.streamguys.net/wbgo
 + "" Nop
 + "Show window info" FvwmIdent
 + "Talk to Fvwm" FvwmTalk
@@ -206,8 +205,7 @@ AddToMenu Quit-Verify "Really Quit Fvwm?" Title
 + "" Nop
 + "Try To Refresh"   Refresh
 #+ "Try To Recapture" Recapture
-#+ "Try To Restart"   Restart fvwm2
-+ "Try To Restart"   Restart fvwm
++ "Try To Restart"   Restart fvwm2
 
 # The other root menu, invoked by the middle mouse button, gives me a chance
 # to do any window operation on a window of my choice. (The cursor changes to
@@ -240,7 +238,7 @@ Key F8 A M Resize
 Key F9 A M Iconify
 Key F10 A M Maximize 0 100
 Key F10 A SM Maximize 100 100
-Key Tab A M WindowList
+Key Tab A M WindowList (CurrentDesk)
 Key Insert A CM Exec exec sudo -n shutdown -r now
 Key Delete A CM Exec exec sudo -n shutdown -p now
 
@@ -311,13 +309,13 @@ AddToFunc InitFunction "I" Echo initializing...
 + "I" Exec exec links -g -mode 1000x675
 + "I" Wait Links
 + "I" Desk 0 1
-+ "I" Exec exec urxvt -font 6x13 -geometry 136x50+514+100 -fg \#fff4c0 -bg \#381900 -sr
-+ "I" Wait urxvt
++ "I" Exec exec rxvt -font 6x13 -geometry 136x50+514+100 -fg \#fff4c0 -bg \#381900 -sr
++ "I" Wait rxvt
 + "I" Exec exec emacs -font 6x13 -geometry 80x61+0+0 -fg \#ffe97a -bg \#00002b -cr Brown
 + "I" Wait emacs
 + "I" Desk 0 0
-+ "I" Exec exec urxvt -font 6x13 -geometry 136x50+514+100 -fg white -bg black -sr
-+ "I" Wait urxvt
++ "I" Exec exec rxvt -font 6x13 -geometry 136x50+514+100 -fg white -bg black -sr
++ "I" Wait rxvt
 + "I" Exec exec emacs -font 6x13 -geometry 80x61+0+0 -fg \#ffe97a -bg \#002b00 -cr Brown
 + "I" Wait emacs
 + "I" Exec exec xeyes -geometry 55x50-154+33 -fg DarkGreen -center Orange -outline dimgrey
