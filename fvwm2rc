@@ -239,8 +239,8 @@ Key F9 A M Iconify
 Key F10 A M Maximize 0 100
 Key F10 A SM Maximize 100 100
 Key Tab A M WindowList (CurrentDesk)
-Key Insert A CM Exec exec sudo -n shutdown -r now
-Key Delete A CM Exec exec sudo -n shutdown -p now
+Key Insert A CM Exec exec systemctl poweroff
+Key Delete A CM Exec exec systemctl reboot
 
 # Now comes the fun part: Buttons to push that will take me from one
 # desktop to another.
@@ -309,7 +309,7 @@ AddToFunc InitFunction "I" Echo initializing...
 + "I" Exec exec links -g -mode 1000x675 -download-dir ~/usr/tmp
 + "I" Wait Links
 + "I" Desk 0 1
-+ "I" Exec exec rxvt -font 6x13 -geometry 136x50+512+98 -fg \#fff4c0 -bg \#381900 -sr
++ "I" Exec exec rxvt -font 6x13 -geometry 137x50+512+98 -fg \#fff4c0 -bg \#381900 -sr
 + "I" Wait rxvt
 + "I" Exec exec emacs -font 6x13 -geometry 81x56+0+0 -fg \#ffe97a -bg \#00002b -cr Brown
 + "I" Wait emacs
