@@ -269,7 +269,7 @@ Key Delete A CM Exec exec sudo -n systemctl poweroff
 *FvwmButtons(2x2+0+2, Icon two.xpm, Action "Desk 0 2")
 *FvwmButtons(2x2+2+2, Icon three.xpm, Action "Desk 0 3")
 
-Style FvwmButtons ClickToFocus, NoTitle, NoHandles, Sticky, WindowListSkip
+Style FvwmButtons NeverFocus, NoTitle, NoHandles, Sticky, WindowListSkip
 
 # Finally, the initialization and restart logic.
 # (The pattern "mod 2 2" is an attractive 2x2 plaid texture.)
