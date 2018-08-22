@@ -1,4 +1,4 @@
-# original: curl --insecure https://www-cs-faculty.stanford.edu/~knuth/programs/.fvwm2rc
+# original: curl -k https://www-cs-faculty.stanford.edu/~knuth/programs/.fvwm2rc
 # This Fvwm2 setup file provides the basic emacs-centered environment
 # that I have found most comfortable on my standalone machine at home.
 # Basically it gives me a big Emacs window at the left and a slightly
@@ -180,11 +180,11 @@ Mouse 3 FTSI A RaiseLower
 # + "Emacs (small font)" Exec exec emacs -font my5x7
 # + "Emacs (as root)" Exec exec doit emacs -font my6x13 -bg DarkRed -cr black
 AddtoMenu Root-Menu "Shell terminal (BIG FONT)" \
-  Exec exec rxvt -font 8x16 -rv
+  Exec exec rxvt -font 9x15 -rv
 + "Shell &terminal (Normal Font)" \
   Exec exec rxvt -font 6x13 -rv
 + "" Nop
-+ "Emacs (BIG FONT)" Exec exec emacs -font 8x16
++ "Emacs (BIG FONT)" Exec exec emacs -font 9x15
 + "&Emacs (Normal Font)" Exec exec emacs -font 6x13
 + "" Nop
 + "&Internet" Exec exec links -g -mode 1000x675 -download-dir ~/usr/tmp
@@ -309,14 +309,14 @@ AddToFunc InitFunction "I" Echo initializing...
 + "I" Exec exec links -g -mode 1000x675 -download-dir ~/usr/tmp
 + "I" Wait Links
 + "I" Desk 0 1
-+ "I" Exec exec rxvt -font 6x13 -geometry 137x50+512+98 -fg \#fff4c0 -bg \#381900 -sr
++ "I" Exec exec rxvt -font 6x13 -geometry 137x50+512+100 -fg \#fff4c0 -bg \#381900 -sr
 + "I" Wait rxvt
-+ "I" Exec exec emacs -font 6x13 -geometry 80x55+0+0 -fg \#ffe97a -bg \#00002b -cr Brown
++ "I" Exec exec emacs -font 6x13 -geometry 80x58+0+0 -fg \#ffe97a -bg \#00002b -cr Brown
 + "I" Wait emacs
 + "I" Desk 0 0
-+ "I" Exec exec rxvt -font 6x13 -geometry 137x50+512+98 -fg white -bg black -sr
++ "I" Exec exec rxvt -font 6x13 -geometry 137x50+512+100 -fg white -bg black -sr
 + "I" Wait rxvt
-+ "I" Exec exec emacs -font 6x13 -geometry 80x55+0+0 -fg \#ffe97a -bg \#002b00 -cr Brown
++ "I" Exec exec emacs -font 6x13 -geometry 80x58+0+0 -fg \#ffe97a -bg \#002b00 -cr Brown
 + "I" Wait emacs
 + "I" Exec exec xeyes -geometry 55x50-154+33 -fg DarkGreen -center Orange -outline dimgrey
 + "I" Wait xeyes
