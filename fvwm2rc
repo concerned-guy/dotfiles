@@ -87,7 +87,7 @@ Style * MinOverlapPlacement
 # Style Xmag Icon xmag.xpm
 # Style Metafont StaysOnTop
 # XPM at: ftp://ftp.cs.indiana.edu/pub/AIcons/desc/cl-48.tar.gz
-Style XTerm Icon jurrasic_park.xpm, NoTitle
+Style URxvt Icon jurrasic_park.xpm, NoTitle
 Style Emacs Icon notebook.xpm, NoTitle
 Style MuPDF DumbPlacement
 Style XEyes NoTitle, StaysOnTop, Sticky, WindowListSkip
@@ -180,15 +180,15 @@ Mouse 3 FTSI A RaiseLower
 # + "Emacs (small font)" Exec exec emacs -font my5x7
 # + "Emacs (as root)" Exec exec doit emacs -font my6x13 -bg DarkRed -cr black
 AddtoMenu Root-Menu "Shell terminal (BIG FONT)" \
-  Exec exec rxvt -font 9x15 -rv
+  Exec exec urxvt -font 9x15 -rv
 + "Shell &terminal (Normal Font)" \
-  Exec exec rxvt -font 6x13 -rv
+  Exec exec urxvt -font 6x13 -rv
 + "" Nop
 + "Emacs (BIG FONT)" Exec exec emacs -font 9x15
 + "&Emacs (Normal Font)" Exec exec emacs -font 6x13
 + "" Nop
-+ "&Internet" Exec exec links -g -mode 1000x675 -download-dir ~/usr/tmp
-+ "&Play music" Exec exec rxvt -e mplayer http://wbgo.streamguys.net/wbgo
++ "&Internet" Exec exec urxvt -geometry 150x48 -rv -e lynx -cookies 0 .
++ "&Play music" Exec exec urxvt -e mplayer http://wbgo.streamguys.net/wbgo
 + "" Nop
 + "Show window info" FvwmIdent
 + "Talk to Fvwm" FvwmTalk
@@ -302,20 +302,19 @@ AddToFunc Basic-Setup "I" Module FvwmButtons
 # + "I" Wait xeyes
 # + "I" Exec exec unclutter
 # + "I" Echo ready...
-
 AddToFunc InitFunction "I" Echo initializing...
 + "I" Function Basic-Setup
 + "I" Desk 0 2
-+ "I" Exec exec links -g -mode 1000x675 -download-dir ~/usr/tmp
-+ "I" Wait Links
++ "I" Exec exec urxvt -font 6x13 -geometry 150x48+0+0 -rv -e lynx -cookies 0 .
++ "I" Wait lynx
 + "I" Desk 0 1
-+ "I" Exec exec rxvt -font 6x13 -geometry 137x50+512+100 -fg \#fff4c0 -bg \#381900 -sr
-+ "I" Wait rxvt
++ "I" Exec exec urxvt -font 6x13 -geometry 137x50+512+100 -fg \#fff4c0 -bg \#381900 -sr
++ "I" Wait urxvt
 + "I" Exec exec emacs -font 6x13 -geometry 80x58+0+0 -fg \#ffe97a -bg \#00002b -cr Brown
 + "I" Wait emacs
 + "I" Desk 0 0
-+ "I" Exec exec rxvt -font 6x13 -geometry 137x50+512+100 -fg white -bg black -sr
-+ "I" Wait rxvt
++ "I" Exec exec urxvt -font 6x13 -geometry 137x50+512+100 -fg white -bg black -sr
++ "I" Wait urxvt
 + "I" Exec exec emacs -font 6x13 -geometry 80x58+0+0 -fg \#ffe97a -bg \#002b00 -cr Brown
 + "I" Wait emacs
 + "I" Exec exec xeyes -geometry 55x50-154+33 -fg DarkGreen -center Orange -outline dimgrey
