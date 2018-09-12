@@ -3,6 +3,7 @@
 ;; Global behavior
 (setq auto-save-default nil)          ;disable autosaves
 (setq auto-save-list-file-prefix nil) ;disable listing of autosaves
+(setq inhibit-startup-screen t)       ;disable startup screen
 (setq make-backup-files nil)          ;disable backups
 (setq-default c-basic-offset 4)       ;style variable
 (setq-default indent-tabs-mode nil)   ;spaces instead of tabs
