@@ -1,4 +1,4 @@
-;;; init.el --- emacs initialization file
+;;; emacs.el --- emacs initialization file
 
 ;; Global behavior
 (setq auto-save-default nil)            ;disable autosaves
