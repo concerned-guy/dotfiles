@@ -1,1 +1,4 @@
+rxvt*font: 7x14
 urxvt*font: 7x14
+x-terminal-emulator*font: 7x14
+xterm*font: 7x14
